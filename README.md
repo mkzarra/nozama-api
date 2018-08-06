@@ -30,4 +30,4 @@ Group project to create a website for Nozama, an e-commerce company
 
 
 ## ERD
-![Nozama](https://i.imgur.com/S0Kv0zJ.jpg)
+![Nozama](https://i.imgur.com/vp66y8Q.jpg)

@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: String,g
+    type: String,
     required: true
   },
   descripton: {
