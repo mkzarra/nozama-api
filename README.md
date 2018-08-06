@@ -10,6 +10,24 @@ Group project to create a website for Nozama, an e-commerce company
 - Express
 - MongoDB
 - Mongoose 
+- Javascript
+
+## API ENDPOINTS
+### USERS
+- POST /sign-up
+- POST /sign-in
+- PATCH /change-password/:id
+- DELETE /sign-out/:id
+
+### ORDERS
+- GET /orders
+- POST /orders
+- PATCH /orders/:id
+- DELETE /orders/:id
+
+### Items
+- GET /items
+
 
 ## ERD
-![Nozama](https://i.imgur.com/xjCoNbI.jpg)
+![Nozama](https://i.imgur.com/S0Kv0zJ.jpg)
