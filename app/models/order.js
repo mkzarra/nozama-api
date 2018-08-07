@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
-  _owner: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
@@ -14,7 +14,11 @@ const orderSchema = new mongoose.Schema({
     },
     quantity: {
       type: Number,
-      required: true
+      required: true,
+      validate: {
+        validator: Number.isInteger,
+        message: '{VALUE} is not an integer value'
+      }
     }
   }],
   total: {
