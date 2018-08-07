@@ -8,13 +8,13 @@ const orderSchema = new mongoose.Schema({
   },
   items: [{
     item_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Item',
-    required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Item',
+      required: true
     },
     quantity: {
-    type: Number,
-    required: true
+      type: Number,
+      required: true
     }
   }],
   total: {
@@ -26,7 +26,8 @@ const orderSchema = new mongoose.Schema({
     required: true
   }
 }, {
-    timestamps: true
-  })
+
+  timestamps: true
+})
 
 module.exports = mongoose.model('Order', orderSchema)

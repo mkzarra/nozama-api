@@ -1,1 +1,1 @@
-mongoimport --db=nozama-api --collection=items --type=csv --headerline --file=data/items.csv
+mongoimport --db=nozama-api-development --collection=items --type=csv --headerline --file=data/items.csv
