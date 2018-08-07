@@ -20,6 +20,10 @@ const orderSchema = new mongoose.Schema({
   total: {
     type: Number,
     required: true
+  },
+  submitted: {
+    type: Boolean,
+    required: true
   }
 }, {
     timestamps: true
