@@ -62,6 +62,22 @@ router.post('/orders', requireToken, (req, res) => {
   // set owner of new order to be current user
   req.body.order.owner = req.user.id
 
+  console.log(Object.keys(req.body.order), Object.keys(req.body.order).length)
+
+  if (Object.keys(req.body.order).length !== 4) {
+    console.log('fail order not 4')
+    res.status(422).json({ message: 'fail order not 4' })
+  }
+  if (Object.keys(req.body.order.items).length < 1) {
+    console.log('fail items not there')
+    res.status(422).json({ message: 'fail order not 4' })
+    // return
+  }
+  const colsInEachItem = req.body.order.items.map(item => Object.keys(item).length === 2)
+  if (colsInEachItem.some(item => item === false)) {
+    res.status(422).json({ message: 'hey hi nice to meet you' })
+  }
+
   Order.create(req.body.order)
     // respond to succesful `create` with status 201 and JSON of new "order"
     .then(order => {
