@@ -1,3 +1,6 @@
+const keyPublishable = process.env.STRIPE_PUBLISHABLE_KEY
+const keySecret = process.env.STRIPE_SECRET_KEY
+
 // Express docs: http://expressjs.com/en/api.html
 const express = require('express')
 // Passport docs: http://www.passportjs.org/docs/
@@ -77,7 +80,14 @@ router.post('/orders', requireToken, (req, res) => {
   if (colsInEachItem.some(item => item === false)) {
     res.status(422).json({ message: 'hey hi nice to meet you' })
   }
+  const token = req.body.stripeToken // Using Express
 
+  const charge = stripe.charges.create({
+    amount: 999,
+    currency: 'usd',
+    description: 'Example charge',
+    source: token
+  })
   Order.create(req.body.order)
     // respond to succesful `create` with status 201 and JSON of new "order"
     .then(order => {

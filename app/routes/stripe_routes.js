@@ -3,10 +3,17 @@ const express = require('express')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
+const keyPublishable = process.env.STRIPE_PUBLISHABLE_KEY
+const keySecret = process.env.STRIPE_SECRET_KEY
+
 // pull in Mongoose model for stripes
-const Stripe = require('../models/stripe')
+const stripe = require('stripe')(keySecret)
 const Order = require('../models/order')
 
+app.set('view engine', 'pug')
+app.use(require('body-parser').urlencoded({ extended: false }))
+app.get('/', (req, res) =>
+  res.render('index.pug', { keyPublishable }))
 // we'll use this to intercept any errors that get thrown and send them
 // back to the client with the appropriate status code
 const handle = require('../../lib/error_handler')
@@ -23,20 +30,30 @@ const router = express.Router()
 // POST /charge
 router.post('order/:id/charge', requireToken, (req, res, next) => {
   // set owner of new stripe to be current user
-  const orderId = req.params.id
-  const stripeToken = req.body.stripeToken
-  const charge = {
-    amount: total,
-    currency: 'USD',
-    card: stripeToken
-  }
+  let amount = 500
 
-  Stripe.charges.create(charge)
-    .then(Order.update(orderId, req.body))
-    .then(data => console.log('success ', data))
-    .catch(console.error('failure ', error))
+    .then(customer =>
+      stripe.charges.create({
+        amount,
+        description: 'sample charge',
+        currency: 'usd'
+      }))
+    .then(charge => res.render('charge.pug'))
+    .catch(handle)
+  // const orderId = req.params.id
+  // const stripeToken = req.body.stripeToken
+  // const charge = {
+  //   amount: Order.total,
+  //   currency: 'USD',
+  //   card: stripeToken
+  // }
 
-  // Stripe.create(req.body.stripe)
+  // stripe.charges.create(charge)
+  //   .then(Order.update(orderId, req.body))
+  //   .then(data => console.log('success ', data))
+  //   .catch(console.error('failure'))
+
+  // stripe.create(req.body.stripe)
   //   // respond to succesful `create` with status 201 and JSON of new "stripe"
   //   .then(stripe => {
   //     res.status(201).json({ stripe: stripe.toObject() })
