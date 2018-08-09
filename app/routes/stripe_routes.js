@@ -8,12 +8,12 @@ const keySecret = process.env.STRIPE_SECRET_KEY
 
 // pull in Mongoose model for stripes
 const stripe = require('stripe')(keySecret)
-const Order = require('../models/order')
 
-app.set('view engine', 'pug')
+const order = require('../models/order')
+// app.set('view engine', 'pug')
 app.use(require('body-parser').urlencoded({ extended: false }))
-app.get('/', (req, res) =>
-  res.render('index.pug', { keyPublishable }))
+// app.get('/', (req, res) =>
+  // res.render('index.pug', { keyPublishable }))
 // we'll use this to intercept any errors that get thrown and send them
 // back to the client with the appropriate status code
 const handle = require('../../lib/error_handler')
@@ -30,15 +30,30 @@ const router = express.Router()
 // POST /charge
 router.post('order/:id/charge', requireToken, (req, res, next) => {
   // set owner of new stripe to be current user
-  let amount = 500
+  // let amount = 500
 
-    .then(customer =>
-      stripe.charges.create({
-        amount,
-        description: 'sample charge',
-        currency: 'usd'
-      }))
-    .then(charge => res.render('charge.pug'))
+  console.log(req.body)
+  const token = req.body.stripeToken // Using Express
+
+  const charge = stripe.charges.create({
+    amount: order.total,
+    currency: 'usd',
+    description: 'Example charge',
+    source: token
+  })
+    
+    .then(charge)
+  // stripe.customers.create({
+  //   email: req.body.stripeEmail,
+  //   source: req.body.stripeToken
+  // })
+    // .then(customer =>
+    //   stripe.charges.create({
+    //     amount,
+    //     description: 'sample charge',
+    //     currency: 'usd'
+    //   }))
+    // .then(charge => res.render('charge.pug'))
     .catch(handle)
   // const orderId = req.params.id
   // const stripeToken = req.body.stripeToken
