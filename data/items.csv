@@ -1,4 +1,17 @@
-name, price, category, description, weight, dimensions
-clown, 200, lego person, tiny lego clown with two lego balloon animals, 4, 1 x 0.5 x 0.25
-darth vader, .30, lego person, tiny lego darth vader with a red lego light saber, 3.7, 1 x 0.5 x 0.25
-unicorn costume, 700, lego person, tiny magestic lego person in unicorn costume, 4, 1 x 0.5 x 0.25
+name, price, category, description, weight, dimensions, url
+Clown, 200, lego person, Tiny lego clown with two lego balloon animals, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/clown.jpeg
+Chicken Costume, 300, lego person, Tiny lego person in chicken costume, 4.1, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/chicken.jpeg
+Unicorn Costume, 700, lego person, Tiny majestic lego person in unicorn costume, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/unicorn.jpeg
+Rocket Costume, 400, lego person, Tiny lego person in rocket costume with a ballon, 4.3, 1.2in  x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/rocket.jpeg
+Batman, 200, lego movie, Tiny lego Batman, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/batman.jpeg
+Wyldstyle, 200, lego movie, Tiny lego Wyldstyle, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/wildstyle.jpeg
+Knight, 150, lego person, Tiny lego knight about to be squashed! Save him!, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/knight.jpeg
+Clone Trooper, 150, star wars, Tiny lego clone trooper who enjoys long walks on the beach, 4, 1in x 0.5in x 0.25in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/starwarsclone.jpeg
+Clone Trooper Painter, 300, star wars, Tiny lego clone trooper with paint brush and easel, 6, 2in x 1in x 1in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/starwarspainter.jpeg
+Birthday Couple, lego person, 300, Two lego figures with balloons and cake, 8, 2in x 1in x 0.5in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/birthday2.jpeg
+Lego Movie Set of 5, 900, lego movie, Wonder Woman / Wyldstyle / Batman / Sonic / Gandalf, 20, 5in x 5in x 2in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/legomovie5.jpeg
+Lego Movie Set of 2, 400, lego movie, Wyldstyle and Wonder Woman, 8, 2in x 1in x 0.5in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/wonderwomen2.jpeg
+Star Wars Set of 4, 800, star wars, Chewie and Han Solo and the gang, 16, 5in x 3in x 1in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/starwars4.jpeg
+Star Wars Set of 5, 900, star wars, Two storm trooper parents teach Darth Vader to ride a bike with R2D2 and another tiny storm trooper, 10, 8in x 5in x 2in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/starwars5.jpeg
+Star Wars Set of 2, 400, star wars, Darth Vader and clone trooper in conflict, 8, 2in x 1in x 0.5in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/vader2.jpeg
+Star Wars Set of 3, 600, star wars, Storm trooper plays with tiny storm trooper as Darth Vader looks forlorn, 12, 5in x 2in x 1in, https://raw.githubusercontent.com/GA-Team-Project/nozama_client/dev/assets/img/items/starwars3.jpeg
