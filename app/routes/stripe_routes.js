@@ -31,18 +31,20 @@ const router = express.Router()
 router.post('order/:id/charge', requireToken, (req, res, next) => {
   // set owner of new stripe to be current user
   // let amount = 500
-
-  console.log(req.body.orders)
+  console.log(order)
+  console.log(req.body.order)
+  debugger
   const token = req.body.stripeToken // Using Express
 
   const charge = stripe.charges.create({
     amount: order.total,
     currency: 'usd',
-    description: 'Nozama ' + order.id,
+    description: `${order.timestamps} Nozama ${order.id}`,
     source: token
   })
     
     .then(charge)
+    .then(req.body.order.submitted === true)
   // stripe.customers.create({
   //   email: req.body.stripeEmail,
   //   source: req.body.stripeToken
