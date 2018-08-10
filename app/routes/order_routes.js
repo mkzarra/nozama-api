@@ -31,6 +31,8 @@ const router = express.Router()
 // INDEX
 // GET /orders
 router.get('/orders', requireToken, (req, res) => {
+  requireOwnership(req, order)
+  
   Order.find()
     .then(orders => {
       // `orders` will be an array of Mongoose documents
