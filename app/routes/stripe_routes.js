@@ -11,7 +11,7 @@ const stripe = require('stripe')(keySecret)
 
 const order = require('../models/order')
 // app.set('view engine', 'pug')
-app.use(require('body-parser').urlencoded({ extended: false }))
+// app.use(require('body-parser').urlencoded({ extended: false }))
 // app.get('/', (req, res) =>
   // res.render('index.pug', { keyPublishable }))
 // we'll use this to intercept any errors that get thrown and send them
@@ -33,7 +33,6 @@ router.post('order/:id/charge', requireToken, (req, res, next) => {
   // let amount = 500
   console.log(order)
   console.log(req.body.order)
-  debugger
   const token = req.body.stripeToken // Using Express
 
   const charge = stripe.charges.create({
