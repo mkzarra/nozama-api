@@ -39,7 +39,7 @@ router.post('/charge', requireToken, (req, res, next) => {
     description: `Nozama ${order.id}`,
     source: token
   })
-    
+    .then(res.send(keyPublishable))
     .then(charge => res.status(201).json( {charge: charge.toObject() }))
     .then(req.body.order.submitted === true)
   // stripe.customers.create({
