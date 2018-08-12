@@ -27,22 +27,20 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // CREATE
-// POST /charge
-router.post('order/:id/charge', requireToken, (req, res, next) => {
+// POST /
+router.post('/', requireToken, (req, res, next) => {
   // set owner of new stripe to be current user
   // let amount = 500
-  console.log(order)
-  console.log(req.body.order)
   const token = req.body.stripeToken // Using Express
 
   const charge = stripe.charges.create({
     amount: order.total,
     currency: 'usd',
-    description: `${order.timestamps} Nozama ${order.id}`,
+    description: `Nozama ${order.id}`,
     source: token
   })
     
-    .then(charge)
+    .then(charge => res.status(201).json( {charge: charge.toObject() }))
     .then(req.body.order.submitted === true)
   // stripe.customers.create({
   //   email: req.body.stripeEmail,
