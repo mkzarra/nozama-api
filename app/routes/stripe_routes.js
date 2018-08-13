@@ -31,6 +31,7 @@ const router = express.Router()
 router.post('/charge', requireToken, (req, res, next) => {
   // set owner of new stripe to be current user
   // let amount = 500
+  console.log(req.body.stripeToken)
   const token = req.body.stripeToken // Using Express
 
   const charge = stripe.charges.create({
@@ -39,7 +40,9 @@ router.post('/charge', requireToken, (req, res, next) => {
     description: `Nozama ${order.id}`,
     source: token
   })
-    .then(res.send(keyPublishable))
+    .then(data => console.log(data))
+    .then(err => console.log(err))
+    // .then(res.send(keyPublishable))
     .then(charge => res.status(201).json( {charge: charge.toObject() }))
     .then(req.body.order.submitted === true)
   // stripe.customers.create({
