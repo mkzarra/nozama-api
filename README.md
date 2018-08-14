@@ -4,6 +4,10 @@
 Group project to create a website for Nozama, an e-commerce company that sells OGEL mini figures.
 
 ## Related Links
+- [Deployed Site](https://ga-team-project.github.io/nozama_client/ "Nozama Deployed Site")
+- [Nozama Back End](https://github.com/GA-Team-Project/nozama_client "Nozama Back End")
+- [Nozama Front End](https://github.com/GA-Team-Project/nozama-api "Nozama Back End")
+- [Deployed Back End](https://afternoon-coast-29423.herokuapp.com/ "Nozama Deployed Back End")
 
 ## Technologies
 - Node
