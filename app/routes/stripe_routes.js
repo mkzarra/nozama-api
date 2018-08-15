@@ -29,7 +29,7 @@ const router = express.Router()
 
 // CREATE
 // POST /
-router.post('/charges', requireToken, (req, res) => {
+router.post('/charges', (req, res) => {
   // set owner of new stripe to be current user
   // let amount = 500
   chargeStripe(req)
