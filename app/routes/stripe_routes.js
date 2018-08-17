@@ -30,6 +30,7 @@ const router = express.Router()
 // CREATE
 // POST /
 router.post('/charges', (req, res) => {
+  console.log(req.body)
   // set owner of new stripe to be current user
   // let amount = 500
   chargeStripe(req)
@@ -76,10 +77,10 @@ router.post('/charges', (req, res) => {
 
 const chargeStripe = req => {
   return stripe.charges.create({
-    amount: order.total,
+    amount: 20000,
     currency: 'usd',
     description: `Nozama ${order.id}`,
-    source: req.body.stripeToken
+    source: req.body.token.id
   })
 }
 module.exports = router
